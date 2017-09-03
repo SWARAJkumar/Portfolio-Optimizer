@@ -125,7 +125,7 @@ def optimize_by_sharpe_ratio(total_portfolio, risk_free_return):
     bounds = ((0, 1), (0, 1), (0, 1))
     result = spo.minimize(sharpe_ratio, alloc, args=(total_portfolio, risk_free_return), method='SLSQP', bounds=bounds, constraints=constraints, options={'disp':True})
     return result
-'''
+
 degree = 4
 data=[]
 poly_coef=np.poly1d([1.5, -10, -5, 10, 50])
@@ -141,8 +141,8 @@ plt.plot(x ,np.polyval(poly_coef ,x) ,'m--' ,linewidth=2.0)
 plt.plot(x ,np.polyval(result ,x) ,'m--' ,linewidth=2.0)
 plt.show()
 print(np.polyfit(d[:,0], d[:,1],4))
-'''
-'''
+
+
 total_portfolio = 10000
 d=optimize_by_sharpe_ratio(total_portfolio, 0.4)
 print(d)
@@ -157,4 +157,3 @@ ax = temp.plot(title="Daily Returns", label='SPY')
 ax.set_xlabel("DATE")
 ax.set_ylabel("RETURN")
 plt.show()
-'''
